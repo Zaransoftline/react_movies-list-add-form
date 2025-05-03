@@ -1,12 +1,11 @@
-export * from './NewMovie';
 import { Movie } from '../../types/Movie';
 
 export function handleSubmit(
   event: React.FormEvent<HTMLFormElement>,
   title: string,
   imgUrl: string,
-  ImdbUrl: string,
-  ImdbId: string,
+  imdbUrl: string,
+  imdbId: string,
   description: string,
   setTitle: React.Dispatch<React.SetStateAction<string>>,
   setDescription: React.Dispatch<React.SetStateAction<string>>,
@@ -18,7 +17,7 @@ export function handleSubmit(
 ) {
   event.preventDefault();
 
-  if (title.trim() && imgUrl.trim() && ImdbId.trim() && ImdbUrl.trim()) {
+  if (title.trim() && imgUrl.trim() && imdbId.trim() && imdbUrl.trim()) {
     setTitle('');
     setDescription('');
     setImdbId('');
@@ -28,9 +27,11 @@ export function handleSubmit(
     onAdd({
       title,
       imgUrl,
-      imdbUrl: ImdbUrl,
-      imdbId: ImdbId,
+      imdbUrl,
+      imdbId,
       description,
     });
   }
 }
+
+export * from './NewMovie';

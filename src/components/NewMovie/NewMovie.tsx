@@ -13,8 +13,8 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [imgUrl, setImgUrl] = useState('');
-  const [ImdbUrl, setImdbUrl] = useState('');
-  const [ImdbId, setImdbId] = useState('');
+  const [imdbUrl, setImdbUrl] = useState('');
+  const [imdbId, setImdbId] = useState('');
   const [count, setCount] = useState(0);
 
   return (
@@ -26,8 +26,8 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
           event,
           title,
           imgUrl,
-          ImdbUrl,
-          ImdbId.toString(),
+          imdbUrl,
+          imdbId.toString(),
           description,
           setTitle,
           setDescription,
@@ -73,7 +73,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
       <TextField
         name="imdbUrl"
         label="Imdb URL"
-        value={ImdbUrl}
+        value={imdbUrl}
         required
         onChange={value => {
           setImdbUrl(value);
@@ -83,7 +83,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
       <TextField
         name="imdbId"
         label="Imdb ID"
-        value={ImdbId.toString()}
+        value={imdbId.toString()}
         required
         onChange={value => {
           setImdbId(value);
@@ -99,8 +99,8 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
             disabled={
               !title.trim() ||
               !imgUrl.trim() ||
-              !ImdbUrl.trim() ||
-              !ImdbId.toString().trim()
+              !imdbUrl.trim() ||
+              !imdbId.toString().trim()
             }
           >
             Add
