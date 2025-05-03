@@ -1,1 +1,36 @@
 export * from './NewMovie';
+import { Movie } from '../../types/Movie';
+
+export function handleSubmit(
+  event: React.FormEvent<HTMLFormElement>,
+  title: string,
+  imgUrl: string,
+  ImdbUrl: string,
+  ImdbId: string,
+  description: string,
+  setTitle: React.Dispatch<React.SetStateAction<string>>,
+  setDescription: React.Dispatch<React.SetStateAction<string>>,
+  setImdbId: React.Dispatch<React.SetStateAction<string>>,
+  setImdbUrl: React.Dispatch<React.SetStateAction<string>>,
+  setImgUrl: React.Dispatch<React.SetStateAction<string>>,
+  setCount: React.Dispatch<React.SetStateAction<number>>,
+  onAdd: (movie: Movie) => void,
+) {
+  event.preventDefault();
+
+  if (title.trim() && imgUrl.trim() && ImdbId.trim() && ImdbUrl.trim()) {
+    setTitle('');
+    setDescription('');
+    setImdbId('');
+    setImdbUrl('');
+    setImgUrl('');
+    setCount(prev => prev + 1);
+    onAdd({
+      title,
+      imgUrl,
+      imdbUrl: ImdbUrl,
+      imdbId: ImdbId,
+      description,
+    });
+  }
+}
